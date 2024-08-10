@@ -1,0 +1,14 @@
+services:
+  node:
+    container_name: nodejs
+    image: reproducepark/mymnd:latest
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - JWT_SECRET=jwesecret
+      - PORT=3000
+      - INITIAL_CODE=123456
+    stdin_open: true
+    tty: true
+    command: sh -c "node initDatabase.js && exec node server.js"
