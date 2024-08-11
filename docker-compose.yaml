@@ -11,4 +11,4 @@ services:
       - INITIAL_CODE=123456
     stdin_open: true
     tty: true
-    command: sh -c "node initDatabase.js && exec node server.js"
+    command: nohup node server.js &
